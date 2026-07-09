@@ -44,14 +44,16 @@
         <div class="card soft">
           <div class="row between"><h3>Agregar rápido</h3><span class="pill">tipo iOS</span></div>
           <form id="expenseForm" class="form-grid">
-            <input id="concept" placeholder="Concepto: Cancún, gasolina, Coppel..." required />
-            <input id="amount" type="number" step="0.01" placeholder="Monto total" required />
-            <input id="paid" type="number" step="0.01" placeholder="A cuenta / pagado" value="0" />
-            <select id="cardName"></select>
-            <input id="purchaseDate" type="date" />
-            <input id="dueDate" type="date" required />
+            <label><span>Concepto / encargo</span><input id="concept" placeholder="Ej. Cancel, material, trabajo de casa..." required /></label>
+            <label><span>Monto total</span><input id="amount" type="number" step="0.01" placeholder="Costo completo" required /></label>
+            <label><span>A cuenta inicial</span><input id="paid" type="number" step="0.01" placeholder="A cuenta" value="0" /></label>
+            <label><span>Tipo / tarjeta</span><select id="cardName"></select></label>
+            <label><span>Inicio de pago / fecha a cuenta</span><input id="purchaseDate" type="date" /></label>
+            <label><span>Fecha de entrega / límite de pago</span><input id="dueDate" type="date" required /></label>
+            <label><span>Otro abono posterior</span><input id="extraPaid" type="number" step="0.01" placeholder="Otro pago a cuenta" /></label>
+            <label><span>Fecha del otro abono</span><input id="extraPaidDate" type="date" /></label>
             <select id="category">
-              <option>Tarjeta</option><option>Servicios</option><option>Casa</option><option>Auto</option><option>Trabajo</option><option>Otro</option>
+              <option>Encargo</option><option>Material</option><option>Trabajo casa</option><option>Tarjeta</option><option>Servicios</option><option>Casa</option><option>Auto</option><option>Otro</option>
             </select>
             <div class="rest-preview">
               <span>Saldo pendiente automático</span>
@@ -88,7 +90,7 @@
       <section id="settings" class="view">
         <div class="card soft">
           <h3>Tarjetas</h3>
-          <p class="muted">Configura corte y fecha límite. La app te dirá desde qué día te conviene comprar y cuándo pagar.</p>
+          <p class="muted">Configura tus opciones. Encargos sirve para trabajos de casa, materiales o pedidos con abonos.</p>
           <form id="cardForm" class="form-grid card-admin">
             <input id="newCard" placeholder="Nombre de tarjeta" />
             <input id="cutDay" type="number" min="1" max="31" placeholder="Día de corte, ej. 10" />

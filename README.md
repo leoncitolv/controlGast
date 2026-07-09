@@ -26,3 +26,7 @@ PWA instalable estilo iOS para controlar gastos de tarjetas, pagos pendientes y 
   "apiUrl": ""
 }
 ```
+
+## Actualización tarjetas de crédito
+- Para tarjetas se captura solo saldo, fecha de corte, fechas buenas para comprar y fecha límite de pago.
+- Encargos mantiene monto total, a cuenta, abonos posteriores y edición para agregar más pagos.

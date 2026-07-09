@@ -44,22 +44,22 @@
         <div class="card soft">
           <div class="row between"><h3>Agregar rápido</h3><span class="pill">tipo iOS</span></div>
           <form id="expenseForm" class="form-grid">
-            <label><span>Concepto / encargo</span><input id="concept" placeholder="Ej. Cancel, material, trabajo de casa..." required /></label>
-            <label><span>Monto total</span><input id="amount" type="number" step="0.01" placeholder="Costo completo" required /></label>
-            <label><span>A cuenta inicial</span><input id="paid" type="number" step="0.01" placeholder="A cuenta" value="0" /></label>
+            <label id="conceptGroup"><span id="conceptLabel">Concepto / encargo</span><input id="concept" placeholder="Ej. Cancel, material, trabajo de casa..." required /></label>
+            <label id="amountGroup"><span id="amountLabel">Monto total</span><input id="amount" type="number" step="0.01" placeholder="Costo completo" required /></label>
+            <label id="paidGroup"><span>A cuenta inicial</span><input id="paid" type="number" step="0.01" placeholder="A cuenta" value="0" /></label>
             <label><span>Tipo / tarjeta</span><select id="cardName"></select></label>
-            <label><span>Inicio de pago / fecha a cuenta</span><input id="purchaseDate" type="date" /></label>
-            <label><span>Fecha de entrega / límite de pago</span><input id="dueDate" type="date" required /></label>
-            <label><span>Otro abono posterior</span><input id="extraPaid" type="number" step="0.01" placeholder="Otro pago a cuenta" /></label>
-            <label><span>Fecha del otro abono</span><input id="extraPaidDate" type="date" /></label>
-            <select id="category">
+            <label id="purchaseGroup"><span id="purchaseLabel">Inicio de pago / fecha a cuenta</span><input id="purchaseDate" type="date" /></label>
+            <label id="dueGroup"><span id="dueLabel">Fecha de entrega / límite de pago</span><input id="dueDate" type="date" required /></label>
+            <label id="extraPaidGroup"><span>Otro abono posterior</span><input id="extraPaid" type="number" step="0.01" placeholder="Otro pago a cuenta" /></label>
+            <label id="extraDateGroup"><span>Fecha del otro abono</span><input id="extraPaidDate" type="date" /></label>
+            <select id="category" class="encargoOnly">
               <option>Encargo</option><option>Material</option><option>Trabajo casa</option><option>Tarjeta</option><option>Servicios</option><option>Casa</option><option>Auto</option><option>Otro</option>
             </select>
-            <div class="rest-preview">
-              <span>Saldo pendiente automático</span>
+            <div class="rest-preview" id="restBox">
+              <span id="restLabel">Saldo pendiente automático</span>
               <strong id="restPreview">$0.00</strong>
             </div>
-            <textarea id="notes" placeholder="Notas o guía de pago"></textarea>
+            <textarea id="notes" class="encargoOnly" placeholder="Notas o guía de pago"></textarea>
             <button class="primary" type="submit">Guardar gasto</button>
           </form>
         </div>
@@ -90,9 +90,10 @@
       <section id="settings" class="view">
         <div class="card soft">
           <h3>Tarjetas</h3>
-          <p class="muted">Configura tus opciones. Encargos sirve para trabajos de casa, materiales o pedidos con abonos.</p>
+          <p class="muted">Configura tarjetas con saldo, corte, mejores fechas de compra y fecha límite. Encargos conserva abonos para trabajos de casa o materiales.</p>
           <form id="cardForm" class="form-grid card-admin">
-            <input id="newCard" placeholder="Nombre de tarjeta" />
+            <input id="newCard" placeholder="Nombre: Santander, Nu o Encargos" />
+            <input id="cardBalance" type="number" step="0.01" placeholder="Saldo actual de la tarjeta" />
             <input id="cutDay" type="number" min="1" max="31" placeholder="Día de corte, ej. 10" />
             <input id="payDay" type="number" min="1" max="31" placeholder="Día límite pago, ej. 30" />
             <button class="primary">Agregar tarjeta</button>

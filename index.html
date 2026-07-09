@@ -48,10 +48,15 @@
             <input id="amount" type="number" step="0.01" placeholder="Monto total" required />
             <input id="paid" type="number" step="0.01" placeholder="A cuenta / pagado" value="0" />
             <select id="cardName"></select>
+            <input id="purchaseDate" type="date" />
             <input id="dueDate" type="date" required />
             <select id="category">
               <option>Tarjeta</option><option>Servicios</option><option>Casa</option><option>Auto</option><option>Trabajo</option><option>Otro</option>
             </select>
+            <div class="rest-preview">
+              <span>Saldo pendiente automático</span>
+              <strong id="restPreview">$0.00</strong>
+            </div>
             <textarea id="notes" placeholder="Notas o guía de pago"></textarea>
             <button class="primary" type="submit">Guardar gasto</button>
           </form>
@@ -83,8 +88,14 @@
       <section id="settings" class="view">
         <div class="card soft">
           <h3>Tarjetas</h3>
-          <form id="cardForm" class="inline-form"><input id="newCard" placeholder="Nombre de tarjeta" /><button class="primary">Agregar</button></form>
-          <div id="cardsList" class="chips"></div>
+          <p class="muted">Configura corte y fecha límite. La app te dirá desde qué día te conviene comprar y cuándo pagar.</p>
+          <form id="cardForm" class="form-grid card-admin">
+            <input id="newCard" placeholder="Nombre de tarjeta" />
+            <input id="cutDay" type="number" min="1" max="31" placeholder="Día de corte, ej. 10" />
+            <input id="payDay" type="number" min="1" max="31" placeholder="Día límite pago, ej. 30" />
+            <button class="primary">Agregar tarjeta</button>
+          </form>
+          <div id="cardsList" class="card-list"></div>
         </div>
         <div class="card soft">
           <h3>Exportar / importar JSON</h3>
